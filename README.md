@@ -85,6 +85,17 @@ This repository contains **automation test scenarios** for **Akakce.com**, focus
 
 ---
 
+## 👥 Team
+### 🧑‍💼 Team Lead
+- **Ruya Tiras**
+### 👤 Contributors
+- **Efe Ersan**  
+- **Arslan Taha DURAN**  
+- **Aslihan Gulluoglu**  
+- **Taner Ozcelik**
+
+---
+
 ## 📄 License
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.  
 
