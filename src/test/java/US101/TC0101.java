@@ -70,6 +70,13 @@ public class TC0101 {
         signUpBtn.click();
 
         //
+        BaseDriver.threadWait(30);
+
+        WebElement verifyBtn = driver.findElement(By.id("update"));
+        wait.until(ExpectedConditions.elementToBeClickable(verifyBtn));
+        verifyBtn.click();
+
+        //
         WebElement user = driver.findElement(By.id("H_a_v8"));
         wait.until(ExpectedConditions.textToBePresentInElement(user, "TestUser"));
 
