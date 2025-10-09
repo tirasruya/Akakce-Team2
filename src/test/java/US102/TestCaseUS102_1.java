@@ -26,15 +26,16 @@ public class TestCaseUS102_1 {
         WebElement continueBtn = driver.findElement(By.id("update"));
         continueBtn.click();
 
-        WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        BaseDriver.threadWait(5);
         WebElement password = driver.findElement(By.id("umpc"));
         password.sendKeys("Melocan123");
 
         WebElement continueBtn2 = driver.findElement(By.id("update"));
         continueBtn2.click();
 
-
-        WebElement verifyProfileName = driver.findElement(By.name("Efe")); // profil ismini nasıl bulcagımızı bulamadım By.name denedim ama olmadı sanırım
+        BaseDriver.threadWait(5);
+        WebElement verifyProfileName = driver.findElement(By.xpath("//div/a[@id='H_a_v8']/i"));
 
         final String expectedProfileName = "Efe";
         final String actualProfileName = verifyProfileName.getText();
@@ -44,7 +45,6 @@ public class TestCaseUS102_1 {
 
         driver.quit();
 
-// profil ismini nasıl bulcagımızı bulamadım By.name denedim ama olmadı sanırım
 
     }
 }
