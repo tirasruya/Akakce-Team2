@@ -5,13 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.BaseDriver;
 
-import java.time.Duration;
-
-public class TestCase107 {
+public class TC0702 {
     public static void main(String[] args) {
 
         WebDriver driver= BaseDriver.driver("https://www.akakce.com/");
@@ -61,7 +57,6 @@ public class TestCase107 {
 
         final String expectedHomePage = "Giriş Yap";
         final String actualHomePage = homePageText.getText();
-
 
         Assert.assertEquals("Sayfa acilmadi",expectedHomePage,actualHomePage);
 
