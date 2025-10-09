@@ -45,20 +45,15 @@ public class TC0702 {
         WebElement chooseDeleteAccount=driver.findElement(By.xpath("//button[.//b[text()='Hesabımı Silmek İçin Devam Et']]"));
         chooseDeleteAccount.click();
 
-        WebElement options= driver.findElement(By.xpath("//input[@value='option1']"));
-        options.click();
-
         WebElement deleteFinal= driver.findElement(By.xpath("//button[@name='b']/b[text()='Hesabımı Sil']"));
         deleteFinal.click();
 
-        BaseDriver.threadWait(3);
-
-        WebElement homePageText = driver.findElement(By.xpath("//a[@href='/hesabim/giris/']"));
+        WebElement homePageText = driver.findElement(By.xpath("//div[2]/h1"));
 
         final String expectedHomePage = "Giriş Yap";
         final String actualHomePage = homePageText.getText();
 
-        Assert.assertEquals("Sayfa acilmadi",expectedHomePage,actualHomePage);
+        Assert.assertEquals("Hesap silinmedi",expectedHomePage,actualHomePage);
 
         driver.quit();
     }
