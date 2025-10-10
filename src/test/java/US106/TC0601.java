@@ -1,4 +1,4 @@
-package US107;
+package US106;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -7,9 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utility.BaseDriver;
 
-public class TC0702 {
+public class TC0601 {
     public static void main(String[] args) {
-
         WebDriver driver= BaseDriver.driver("https://www.akakce.com/");
 
         final String email="tanerozcelik@gmail.com";
@@ -33,28 +32,20 @@ public class TC0702 {
         WebElement myAccount= driver.findElement(By.xpath("//div[@id='HM_v8']"));
         myAccount.click();
 
-        WebElement myAccountBtn=driver.findElement(By.xpath("//a[@href='kisisel-bilgilerim/']"));
-        myAccountBtn.click();
-
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,500)");
 
-        WebElement deleteAccount= driver.findElement(By.cssSelector("button#delete"));
-        deleteAccount.click();
+        WebElement notification= driver.findElement(By.xpath("//a[@class='mi n']"));
+        notification.click();
 
-        WebElement chooseDeleteAccount=driver.findElement(By.xpath("//button[.//b[text()='Hesabımı Silmek İçin Devam Et']]"));
-        chooseDeleteAccount.click();
+        WebElement notificationText= driver.findElement(By.xpath("//div[@class='ntf-empty']/h2"));
 
-        WebElement deleteFinal= driver.findElement(By.xpath("//button[@name='b']/b[text()='Hesabımı Sil']"));
-        deleteFinal.click();
+        final String expectedNotification="Henüz hiç bildiriminiz yok";
+        final String actualNotification=notificationText.getText();
 
-        WebElement homePageText = driver.findElement(By.xpath("//div[2]/h1"));
-
-        final String expectedHomePage = "Giriş Yap";
-        final String actualHomePage = homePageText.getText();
-
-        Assert.assertEquals("Hesap silinmedi",expectedHomePage,actualHomePage);
+        Assert.assertEquals("Bildirim mevcut",expectedNotification,actualNotification);
 
         driver.quit();
+
     }
 }
