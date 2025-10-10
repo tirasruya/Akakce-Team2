@@ -4,14 +4,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.BaseDriver;
 
-import java.time.Duration;
-import java.time.Instant;
-
-public class TestCaseUS102_1 {
+public class TC0201 {
     public static void main(String[] args) {
         WebDriver driver = BaseDriver.driver("https://akakce.com/");
 

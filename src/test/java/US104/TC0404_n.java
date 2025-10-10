@@ -9,7 +9,7 @@ import utility.BaseDriver;
 
 import java.time.Duration;
 
-public class TC_0404_n {
+public class TC0404_n {
     public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver = BaseDriver.driver("https://akakce.com/");

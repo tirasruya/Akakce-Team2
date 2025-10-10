@@ -1,5 +1,6 @@
 package US104;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,45 +10,40 @@ import utility.BaseDriver;
 
 import java.time.Duration;
 
-public class TC_0401_p {
-    public static void main(String[] args) {
-        WebDriver driver = BaseDriver.driver("https://akakce.com/");
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+public class TC0403_n {
+    public static void main(String[] args) throws InterruptedException {
 
-        //1.step
+
+        WebDriver driver = BaseDriver.driver("https://akakce.com/");
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+
         WebElement logInBtn= driver.findElement(By.id("H_a_v8"));
         logInBtn.click();
 
-        //2.steps
         WebElement girisYap= driver.findElement(By.xpath("//div[@class='img n']/following-sibling::button"));
         wait.until(ExpectedConditions.elementToBeClickable(girisYap));
         girisYap.click();
 
-        //3.steps
-
         WebElement email= driver.findElement(By.id("new-email"));
         wait.until(ExpectedConditions.visibilityOf(email));
-        email.sendKeys("efeersan@gmail.com");
+        email.sendKeys("invalid@gmail.com");
 
-        //4.steps
-
-        WebElement continueBtn= driver.findElement(By.id("update"));
+        WebElement continueBtn= driver.findElement(By.xpath("//div[@class='bc']/button"));
         wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
         continueBtn.click();
 
-        //5.steps
-        WebElement password= driver.findElement(By.id("umpc"));
-        wait.until(ExpectedConditions.visibilityOf(password));
-        password.sendKeys("Melocan123");
+        WebElement createAccText = driver.findElement(By.cssSelector("#update > b"));
 
-        //6.Steps
+        String expected = "Devam Et";
+        String actual = createAccText.getText();
 
-        WebElement login= driver.findElement(By.id("update"));
-        login.click();
+        Assert.assertEquals( "Hesap Oluştur", expected, actual);
+
+        Thread.sleep(1000);
 
         driver.quit();
 
 
- //
+
     }
 }
