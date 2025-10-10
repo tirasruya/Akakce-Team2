@@ -1,5 +1,6 @@
 package US104;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import utility.BaseDriver;
 import java.time.Duration;
 
 public class TC_0402_n {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver = BaseDriver.driver("https://akakce.com/");
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -41,7 +42,19 @@ public class TC_0402_n {
         wait.until(ExpectedConditions.visibilityOf(password));
         password.sendKeys("invalid123");
 
+        WebElement login= driver.findElement(By.id("update"));
+        login.click();
 
+        WebElement pssCheckText = driver.findElement(By.xpath("//div[@class='input-wrapper er' and @data-e='Lütfen şifrenizi kontrol edin.']"));
+
+        String expected = "Lütfen şifrenizi kontrol edin.";
+        String actual = pssCheckText.getAttribute("data-e").trim();
+
+        Assert.assertEquals( expected, actual);
+
+        Thread.sleep(1000);
+
+        driver.quit();
 
     }
 }
